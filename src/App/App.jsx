@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       DEMAT BREIZH
       <hr />
-      <Button text="Valider" />
+      <Button text="Valider" onbuttonclick={(param)=>{console.log('action',param)}}/>
       <Button text="Annuler" />
       <Button text="Benjamin" />
       <Button
