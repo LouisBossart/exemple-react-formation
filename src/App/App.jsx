@@ -12,13 +12,14 @@ function App() {
           console.log("action", param);
         }}
         children="ertyui"
+        type="submit"
       />
-      <Button text="Annuler">
+      <Button text="Annuler" type="bout">
         <img src="https://cdn3.iconfinder.com/data/icons/miscellaneous-80/60/check-256.png" alt="icone" />
         Coucou
       </Button>
-      <Button text="Benjamin" />
-      <Button />
+      {/* <Button text="Benjamin" /> */}
+      <Button ><div>coucou</div></Button>
     </div>
   );
 }
