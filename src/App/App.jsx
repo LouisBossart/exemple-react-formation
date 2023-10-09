@@ -7,21 +7,18 @@ function App() {
     <div className="App">
       DEMAT BREIZH
       <hr />
-      <Button text="Valider" onbuttonclick={(param)=>{console.log('action',param)}}/>
-      <Button text="Annuler" />
-      <Button text="Benjamin" />
       <Button
-        x={[1, 2]}
-        c={{ abc: 123 }}
-        s="cc"
-        n={1}
-        b={true}
-        g={undefined}
-        f={() => {
-          console.log("fn");
+        onbuttonclick={(param) => {
+          console.log("action", param);
         }}
-        nn={null}
+        children="ertyui"
       />
+      <Button text="Annuler">
+        <img src="https://cdn3.iconfinder.com/data/icons/miscellaneous-80/60/check-256.png" />
+        Coucou
+      </Button>
+      <Button text="Benjamin" />
+      <Button />
     </div>
   );
 }

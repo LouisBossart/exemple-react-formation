@@ -17,7 +17,7 @@ const Button = (props) => {
         props.onbuttonclick("on a tapper sur benjamin");
       }}
     >
-      {props.text}
+      {props.children}
     </button>
   );
 };
