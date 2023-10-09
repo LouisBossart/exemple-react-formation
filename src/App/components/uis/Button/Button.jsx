@@ -1,5 +1,5 @@
 import React from "react";
-import './Button.css'
+import style from './Button.module.css'
 
 /*function Button(props) {
   return <button>Benjamin</button>;
@@ -9,7 +9,7 @@ const Button = (props) => {
   console.log(props);
   return (
     <button
-      className="Button"
+      className={style.Button}
       onClick={(evt) => {
         //traitement de l'event prealable propre au composant
         console.log(evt);
