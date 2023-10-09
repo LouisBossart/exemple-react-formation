@@ -1,5 +1,5 @@
 import React from "react";
-import style from './Button.module.css'
+import style from "./Button.module.css";
 
 /*function Button(props) {
   return <button>Benjamin</button>;
@@ -14,7 +14,9 @@ const Button = (props) => {
         //traitement de l'event prealable propre au composant
         console.log(evt);
         //declenchement de la fonction envoyée par les props depuis le parent
-        props.onbuttonclick("on a tapper sur benjamin");
+        if (undefined !== props.onbuttonclick) {
+          props.onbuttonclick("on a tapper sur benjamin");
+        }
       }}
     >
       {props.children}
