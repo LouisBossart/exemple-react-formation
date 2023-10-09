@@ -14,7 +14,7 @@ function App() {
         children="ertyui"
       />
       <Button text="Annuler">
-        <img src="https://cdn3.iconfinder.com/data/icons/miscellaneous-80/60/check-256.png" />
+        <img src="https://cdn3.iconfinder.com/data/icons/miscellaneous-80/60/check-256.png" alt="icone" />
         Coucou
       </Button>
       <Button text="Benjamin" />
