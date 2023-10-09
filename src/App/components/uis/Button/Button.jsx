@@ -4,6 +4,7 @@ import React from "react";
   return <button>Benjamin</button>;
 }*/
 const Button = (props) => {
+    console.log(props);
     return <button className="Button">Bejamin</button>
 }
 

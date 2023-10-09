@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       DEMAT BREIZH
       <hr/>
-      <Button/>
-      <Button/>
+      <Button abc="ffff"/>
+      <Button bcd="fdsd"/>
       <Button/>
       <Button/>
     </div>
