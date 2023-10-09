@@ -28,9 +28,9 @@ const Button = (props) => {
 Button.propTypes = {
   onbuttonclick: PropTypes.func,
   children: PropTypes.any.isRequired,
-  type : PropTypes.oneOf(['submit', 'reset', 'button']),
+  type: PropTypes.oneOf(["submit", "reset", "button"]),
 };
-Button.defaultProps={
-  type: 'button'
-}
+Button.defaultProps = {
+  type: "button",
+};
 export default Button;
