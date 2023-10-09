@@ -9,6 +9,16 @@ import style from "./Button.module.css";
 class Button extends React.Component {
   constructor(props) {
     super(props);
+    this.state={isClicked:false,abc:256}
+  }
+  componentDidMount(){
+
+  }
+  componentDidUpdate(oldProps,oldState){
+    console.log(oldState,this.state);
+  }
+  componentWillUnmount(){
+
   }
   render() {
     return (
@@ -16,6 +26,8 @@ class Button extends React.Component {
         type={this.props.type}
         className={style.Button}
         onClick={(evt) => {
+          this.setState({isClicked:true});
+          console.log(this.state);
           //traitement de l'event prealable propre au composant
           console.log(evt);
           //declenchement de la fonction envoyée par les props depuis le parent
@@ -23,7 +35,7 @@ class Button extends React.Component {
             this.props.onbuttonclick("on a tapper sur benjamin");
           }
         }}
-      >
+      > {JSON.stringify(this.state)}
         {this.props.children}
       </button>
     );
