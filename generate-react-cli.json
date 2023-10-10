@@ -11,6 +11,17 @@
       "withTest": true,
       "withStory": true,
       "withLazy": true
+    },
+    "func": {
+      "path": "src/App/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "GRC_Template/genericFunction/TemplateName.jsx",
+        "test": "GRC_Template/Readme.md"
+      }
     }
   }
 }
