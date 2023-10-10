@@ -7,34 +7,42 @@ import FlexWGrow from "./components/layouts/FlexWGrow/FlexWGrow";
 import MemeForm from "./components/functionnals/MemeForm/MemeForm";
 import Footer from "./components/uis/Footer/Footer";
 import { MemeSVGViewer, emptyMeme } from "orsys-tjs-meme";
+import Modal from "./components/Modal/Modal";
 
 function App(props) {
   const [state, setstate] = useState(emptyMeme);
   const [images, setimages] = useState([]);
-
+  const [modal, setmodal] = useState({
+    title: "titre",
+    isOpen: true,
+    message: "message",
+  });
   useEffect(() => {
     fetch("http://localhost:5679/images")
       .then((resp) => resp.json())
       .then((arr) => setimages(arr));
   }, []);
   return (
-    <div className="App">
-      <FlexHGrow>
-        <Header />
-        <Navbar />
-        <FlexWGrow>
-          <MemeSVGViewer basePath="" meme={state} />
-          <MemeForm
-            images={images}
-            meme={state}
-            onMemeChange={(meme) => {
-              setstate(meme);
-            }}
-          />
-        </FlexWGrow>
-        <Footer />
-      </FlexHGrow>
-    </div>
+    <>
+      <div className="App">
+        <FlexHGrow>
+          <Header />
+          <Navbar />
+          <FlexWGrow>
+            <MemeSVGViewer basePath="" meme={state} />
+            <MemeForm
+              images={images}
+              meme={state}
+              onMemeChange={(meme) => {
+                setstate(meme);
+              }}
+            />
+          </FlexWGrow>
+          <Footer />
+        </FlexHGrow>
+      </div>
+      <Modal {...modal} onOk={()=>{setmodal({...modal,isOpen:false,title:undefined})}} />
+    </>
   );
 }
 
