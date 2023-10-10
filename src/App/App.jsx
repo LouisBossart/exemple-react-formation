@@ -7,6 +7,7 @@ function App(props) {
   //Mounté uniquement
   useEffect(() => {
     //corps du cycle de vie
+    console.log("montage du composant")
     setcounter(0);
     //fonction de demontage de composant
     // return () => {
