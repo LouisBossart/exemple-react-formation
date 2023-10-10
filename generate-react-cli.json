@@ -33,6 +33,17 @@
         "component": "GRC_Templates/genericLayout/TemplateName.jsx",
         "test": "GRC_Templates/Readme.md"
       }
+    },
+    "ui": {
+      "path": "src/App/components/uis",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "GRC_Templates/genericFunction/TemplateName.jsx",
+        "test": "GRC_Templates/Readme.md"
+      }
     }
   }
 }
