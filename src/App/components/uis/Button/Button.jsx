@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import style from "./Button.module.css";
 
@@ -8,11 +8,19 @@ import style from "./Button.module.css";
 
 const Button = (props) => {
   //console.log(props);
+  const [isClicked, setisClicked] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setisClicked(false);
+    }, 350);
+  }, [isClicked])
   return (
     <button
       type={props.type}
-      className={style.Button}
+      className={`${style.Button}${isClicked ? " " + style.clicked : ""}`}
       onClick={(evt) => {
+        setisClicked(true);
+
         //traitement de l'event prealable propre au composant
         //console.log(evt);
         //declenchement de la fonction envoyée par les props depuis le parent
