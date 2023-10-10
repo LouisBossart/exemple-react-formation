@@ -1,3 +1,6 @@
 .App {
   height: 97vh;
 }
+.fullHeight{
+  height: 100%;
+}

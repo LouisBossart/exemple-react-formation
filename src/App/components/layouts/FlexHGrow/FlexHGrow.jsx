@@ -4,7 +4,7 @@ import styles from "./FlexHGrow.module.css";
 
 const FlexHGrow = (props) => {
   return (
-    <div className={styles.FlexHGrow} data-testid="FlexHGrow">
+    <div className={styles.FlexHGrow+' fullHeight'} data-testid="FlexHGrow">
       {props.children}
     </div>
   );
