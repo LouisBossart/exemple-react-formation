@@ -1,3 +1,3 @@
 # TemplateName
 ## composant templateName
-usage : &gt;TemplateName/&lt;
+usage : &lt;TemplateName/&gt;
