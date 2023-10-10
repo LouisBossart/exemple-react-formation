@@ -19,8 +19,8 @@
       "withStory": true,
       "withLazy": true,
       "customTemplates": {
-        "component": "GRC_Template/genericFunction/TemplateName.jsx",
-        "test": "GRC_Template/Readme.md"
+        "component": "GRC_Templates/genericFunction/TemplateName.jsx",
+        "test": "GRC_Templates/Readme.md"
       }
     },
     "layout": {
@@ -30,8 +30,8 @@
       "withStory": true,
       "withLazy": true,
       "customTemplates": {
-        "component": "GRC_Template/genericLayout/TemplateName.jsx",
-        "test": "GRC_Template/Readme.md"
+        "component": "GRC_Templates/genericLayout/TemplateName.jsx",
+        "test": "GRC_Templates/Readme.md"
       }
     }
   }
