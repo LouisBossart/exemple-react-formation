@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 
-const LazyMemeSvgViewer = lazy(() => import('./MemeSvgViewer'));
+const LazyMemeSvgViewer = lazy(() => import('./MemeSVGViewer'));
 
 const MemeSvgViewer = props => (
   <Suspense fallback={null}>

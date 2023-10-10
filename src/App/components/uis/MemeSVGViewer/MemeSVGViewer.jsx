@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./MemeSvgViewer.module.css";
+import styles from "./MemeSVGViewer.module.css";
 
 const MemeSvgViewer = (props) => {
   const [state, setstate] = useState({});
