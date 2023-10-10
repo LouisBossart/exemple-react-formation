@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Button from "./components/uis/Button/Button";
 
-function App() {
+function App(props) {
   const [counter, setcounter] = useState(-1);
-  //possibilite de plusieurs etats dans le meme cmp ---> 
-  //const [userState, setUserState] = useState({name:"dd",value:0})
+  //Mounté uniquement
+  useEffect(() => {
+    //corps du cycle de vie
+    setcounter(0);
+    //fonction de demontage de composant
+    // return () => {
+    //   //effect
+    //   //
+    // };
+  },[])
+  //mounter et mis a jour
+  useEffect(()=>{
+    console.log('didUpdate sur effect',counter);
+  },[counter])
   return (
     <div className="App">
       Valeur counter : {counter}<br/>
