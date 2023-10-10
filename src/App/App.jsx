@@ -1,25 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Button from "./components/uis/Button/Button";
 
 function App() {
+  const [counter, setcounter] = useState(-1);
+  //possibilite de plusieurs etats dans le meme cmp ---> 
+  //const [userState, setUserState] = useState({name:"dd",value:0})
   return (
     <div className="App">
-      DEMAT BREIZH
+      Valeur counter : {counter}<br/>
+      {/* Valeur counter de userState: {userState.value}<br/> */}
       <hr />
       <Button
-        onbuttonclick={(param) => {
-          console.log("action", param);
+        onbuttonclick={() => {
+          setcounter(counter-1);
+          //setUserState({...userState,value:userState.value-1})
+          console.log(counter);
         }}
-        children="ertyui"
-        type="submit"
-      />
-      <Button text="Annuler" type="bout">
-        <img src="https://cdn3.iconfinder.com/data/icons/miscellaneous-80/60/check-256.png" alt="icone" />
-        Coucou
+      >
+        -1
       </Button>
-      {/* <Button text="Benjamin" /> */}
-      <Button ><div>coucou</div></Button>
+      <Button
+        text="Annuler"
+        onbuttonclick={() => {
+          setcounter(counter+1);
+          console.log(counter);
+        }}
+      >
+        +1
+      </Button>
     </div>
   );
 }
