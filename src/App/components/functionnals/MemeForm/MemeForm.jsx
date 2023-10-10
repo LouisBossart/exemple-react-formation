@@ -19,7 +19,7 @@ const MemeForm = (props) => {
           onChange={(evt) => {
             //console.log(evt)
             //props.onMemeChange({ ...props.meme, titre: evt.target.value });
-            props.onMemeChange({...props.meme,titre: evt.target.value })
+            props.onMemeChange({ ...props.meme, titre: evt.target.value });
           }}
         />
         <hr />
@@ -27,8 +27,27 @@ const MemeForm = (props) => {
           <h2>Image</h2>
         </label>
         <br />
-        <select name="image" id="image">
+        <select
+          name="image"
+          id="image"
+          value={props.meme.imageId}
+          onChange={(evt) => {
+            //console.log(evt)
+            //props.onMemeChange({ ...props.meme, titre: evt.target.value });
+            props.onMemeChange({
+              ...props.meme,
+              imageId: Number(evt.target.value),
+            });
+          }}
+        >
           <option value="-1">Pas d'image</option>
+          {props.images.map((img, pos) => {
+            return (
+              <option key={pos} value={img.id}>
+                {img.titre}
+              </option>
+            );
+          })}
         </select>
         <hr />
         <label htmlFor="text">
@@ -40,8 +59,8 @@ const MemeForm = (props) => {
           id="text"
           type="text"
           value={props.meme.text}
-          onChange={(evt)=>{
-            props.onMemeChange({...props.meme,text:evt.target.value})
+          onChange={(evt) => {
+            props.onMemeChange({ ...props.meme, text: evt.target.value });
           }}
         />
         <br />
@@ -102,7 +121,10 @@ const MemeForm = (props) => {
           value={props.meme.fontSize}
           onChange={(evt) => {
             //console.log(evt)
-            props.onMemeChange({ ...props.meme, fontSize: Number(evt.target.value) });
+            props.onMemeChange({
+              ...props.meme,
+              fontSize: Number(evt.target.value),
+            });
           }}
         />
         px
@@ -132,7 +154,10 @@ const MemeForm = (props) => {
           checked={props.meme.underline}
           onChange={(evt) => {
             //console.log(evt)
-            props.onMemeChange({ ...props.meme, underline: evt.target.checked });
+            props.onMemeChange({
+              ...props.meme,
+              underline: evt.target.checked,
+            });
           }}
         />
         &nbsp;
@@ -168,7 +193,10 @@ const MemeForm = (props) => {
           value={props.meme.frameSizeX}
           onChange={(evt) => {
             //console.log(evt)
-            props.onMemeChange({ ...props.meme, frameSizeX: Number(evt.target.value) });
+            props.onMemeChange({
+              ...props.meme,
+              frameSizeX: Number(evt.target.value),
+            });
           }}
         />
         px
@@ -184,7 +212,10 @@ const MemeForm = (props) => {
           value={props.meme.frameSizeY}
           onChange={(evt) => {
             //console.log(evt)
-            props.onMemeChange({ ...props.meme, frameSizeY: Number(evt.target.value) });
+            props.onMemeChange({
+              ...props.meme,
+              frameSizeY: Number(evt.target.value),
+            });
           }}
         />
         px
@@ -196,7 +227,8 @@ const MemeForm = (props) => {
 };
 
 export default MemeForm;
-MemeForm.propTypes={
-  onMemeChange:PropTypes.func.isRequired,
-  meme: PropTypes.object.isRequired
-}
+MemeForm.propTypes = {
+  onMemeChange: PropTypes.func.isRequired,
+  meme: PropTypes.object.isRequired,
+  images: PropTypes.array.isRequired,
+};
