@@ -13,7 +13,7 @@ const MemeForm = (props) => {
         <br />
         <input name="titre" id="titre" />
         <hr />
-        <label htmlFor="image"></label>
+        <label htmlFor="image">
           <h2>Image</h2>
         </label>
         <br />
