@@ -22,6 +22,17 @@
         "component": "GRC_Template/genericFunction/TemplateName.jsx",
         "test": "GRC_Template/Readme.md"
       }
+    },
+    "layout": {
+      "path": "src/App/components/layouts",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "GRC_Template/genericLayout/TemplateName.jsx",
+        "test": "GRC_Template/Readme.md"
+      }
     }
   }
 }
