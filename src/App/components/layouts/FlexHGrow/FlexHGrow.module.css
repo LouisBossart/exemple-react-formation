@@ -1,6 +1,6 @@
 .FlexHGrow {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .FlexHGrow>*:nth-child(3) {
     flex-grow: 1;
