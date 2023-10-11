@@ -1,24 +1,34 @@
-import React from 'react';
-import FlexHGrow from '../components/layouts/FlexHGrow/FlexHGrow';
-import Header from '../components/uis/Header/Header';
-import Navbar  from '../components/uis/Navbar/Navbar';
-import FlexWGrow from '../components/layouts/FlexWGrow/FlexWGrow';
-import MemeSvgViewer from '../components/uis/MemeSVGViewer/MemeSVGViewer';
-import { ConnectedMemeForm } from '../components/functionnals/MemeForm/MemeForm';
-import Footer from '../components/uis/Footer/Footer';
+import React, { useEffect, useState } from "react";
+import MemeSvgViewer from "../components/uis/MemeSVGViewer/MemeSVGViewer";
+import { ConnectedMemeForm } from "../components/functionnals/MemeForm/MemeForm";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeMeme, clearMeme } from "../store/currentSlice";
 
-export default function Editor() {
+export default function Editor(props) {
+  //const [state, setstate] = useState({params:undefined,memes:undefined})
+  const params = useParams();
+  const memes = useSelector((s) => s.ressources.memes);
+  const navigate = useNavigate();
+  const d = useDispatch();
+  console.log(params);
+  useEffect(() => {
+    if (undefined === params.id) {
+      d(clearMeme());
+    } else {
+      const current = memes.find((m) => m.id === Number(params.id));
+      if (undefined !== current) {
+        d(changeMeme(current));
+      } else if (memes.length !== 0) {
+        navigate("/editor");
+        //pas de meme avec l'id present dans les param .... redirection vers un nouveau meme
+      }
+    }
+  }, [memes, params, d, navigate]);
   return (
     <>
-     <FlexHGrow>
-        <Header />
-        <Navbar />
-        <FlexWGrow>
-          <MemeSvgViewer basePath="" />
-          <ConnectedMemeForm />
-        </FlexWGrow>
-        <Footer />
-      </FlexHGrow>
+      <MemeSvgViewer basePath="" />
+      <ConnectedMemeForm />
     </>
   );
 }
