@@ -4,7 +4,7 @@ import FlexHGrow from "./components/layouts/FlexHGrow/FlexHGrow";
 import Header from "./components/uis/Header/Header";
 import Navbar from "./components/uis/Navbar/Navbar";
 import FlexWGrow from "./components/layouts/FlexWGrow/FlexWGrow";
-import MemeForm from "./components/functionnals/MemeForm/MemeForm";
+import MemeForm, { ConnectedMemeForm } from "./components/functionnals/MemeForm/MemeForm";
 import Footer from "./components/uis/Footer/Footer";
 import { MemeSVGViewer, emptyMeme } from "orsys-tjs-meme";
 import {store} from './store/store'
@@ -18,8 +18,8 @@ function App(props) {
       .then((arr) => setimages(arr));
   }, []);
   useEffect(() => {
-    state.setstate(store.getState().current);
-    store.subscribe(()=>{state.setstate(store.getState().current)})
+    setstate(store.getState().current);
+    store.subscribe(()=>{setstate(store.getState().current)})
   }, [])
   return (
     <div className="App">
@@ -32,12 +32,15 @@ function App(props) {
             meme={state}
             image={images.find((elem) => elem.id === state.imageId)}
           />
-          <MemeForm
+          {/* <MemeForm
             images={images}
             meme={state}
             onMemeChange={(meme) => {
               setstate(meme);
             }}
+          /> */}
+           <ConnectedMemeForm
+            images={images}
           />
         </FlexWGrow>
         <Footer />
