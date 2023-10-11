@@ -1,5 +1,5 @@
 import React from "react";
-import { MemeSVGThumbnail } from "orsys-tjs-meme";
+import MemeSVGThumbnail from "../components/uis/MemeThumbnail/MemeThumbnail";
 
 export default function Thumbnail() {
   return <MemeSVGThumbnail />;

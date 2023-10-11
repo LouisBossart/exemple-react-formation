@@ -4,17 +4,20 @@ import styles from "./MemeThumbnail.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { MemeSVGViewer } from "orsys-tjs-meme";
 import { changeMeme } from "../../../store/currentSlice";
+import { Link } from "react-router-dom";
 const MemeThumbnail = (props) => {
   return (
     <div className={styles.MemeThumbnail} data-testid="MemeThumbnail">
-      <div clasName={styles.container}>
+      <div className={styles.container}>
         {props.memes.map((m, i) => (
-          <div onClick={props.onmemeclick(m)} key={i}>
+          <div onClick={props.onmemeclick(m)} key={"m"+i}>
+            <Link to={"/editor/"+m.id}>
             <MemeSVGViewer
               meme={m}
               image={props.images.find((img) => img.id === m.imageId)}
-              basePath={props.basePath}
+              basePath=""
             />
+            </Link>
           </div>
         ))}
       </div>
@@ -25,11 +28,11 @@ const MemeThumbnail = (props) => {
 MemeThumbnail.propTypes = {
   memes: PropTypes.array.isRequired,
   images: PropTypes.array.isRequired,
-  basePath: PropTypes.string,
-  onmemeclick: PropTypes.func.isRequired,
 };
 MemeThumbnail.defaultValue = {
   basePath: "",
+  images:[],
+  memes:[]
 };
 
 export default function ConnectedComponent(props) {
@@ -39,9 +42,6 @@ export default function ConnectedComponent(props) {
     <MemeThumbnail
       {...props}
       {...ressources}
-      onmemeclick={(meme) => {
-        d(changeMeme(meme));
-      }}
-    ></MemeThumbnail>
+    />
   );
 }

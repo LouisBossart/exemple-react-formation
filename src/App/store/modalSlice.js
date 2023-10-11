@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState ={
     title: "titre",
-    isOpen: true,
+    isOpen: false,
     message: "message",
   }
 
