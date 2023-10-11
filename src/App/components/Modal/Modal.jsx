@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Modal.module.css";
 import { Button } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { hide } from "../../store/modalSlice";
 
-const Modal = (props) => {
+const UModal = (props) => {
+  console.log(props);
   return props.isOpen ? (
     <div className={styles.Modal} data-testid="Modal">
       <div>
@@ -25,13 +28,23 @@ const Modal = (props) => {
   ) : null;
 };
 
-Modal.propTypes = {
+UModal.propTypes = {
   title: PropTypes.string,
   message: PropTypes.any.isRequired,
   onOk: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
 };
 
-Modal.defaultProps = { isOpen: false };
+UModal.defaultProps = { isOpen: false };
 
-export default Modal;
+export const UnconnectedModal = UModal;
+
+export const Modal = (props) => {
+  const state = useSelector((s) => s.modal);
+  const d = useDispatch();
+  console.log(hide());
+  const okfn = () => {
+    d(hide());
+  };
+  return <UModal {...props} {...state} onOk={okfn}></UModal>;
+};
