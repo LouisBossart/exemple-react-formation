@@ -3,14 +3,10 @@ import PropTypes from "prop-types";
 import styles from "./Footer.module.css";
 
 const Footer = (props) => {
-  const [state, setstate] = useState({});
-  useEffect(() => {
-    return () => {
-    };
-  }, [])
+
   return (
-    <div className={styles.Footer} data-testid="Footer">
-      Footer Component
+    <div className={styles.Footer} data-testid="Footer" style={{textAlign:"center"}}>
+      Copyright &copy; Orsys 2023
     </div>
   );
 };

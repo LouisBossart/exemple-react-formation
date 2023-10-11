@@ -3,14 +3,10 @@ import PropTypes from "prop-types";
 import styles from "./Header.module.css";
 
 const Header = (props) => {
-  const [state, setstate] = useState({});
-  useEffect(() => {
-    return () => {
-    };
-  }, [])
   return (
     <div className={styles.Header} data-testid="Header">
-      Header Component
+      <span className={styles.meme}>Meme</span>.
+      <span className={styles.js}>js</span>
     </div>
   );
 };
