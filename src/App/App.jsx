@@ -7,7 +7,7 @@ import FlexWGrow from "./components/layouts/FlexWGrow/FlexWGrow";
 import MemeForm from "./components/functionnals/MemeForm/MemeForm";
 import Footer from "./components/uis/Footer/Footer";
 import { MemeSVGViewer, emptyMeme } from "orsys-tjs-meme";
-
+import {store} from './store/store'
 function App(props) {
   const [state, setstate] = useState(emptyMeme);
   const [images, setimages] = useState([]);
@@ -17,13 +17,21 @@ function App(props) {
       .then((resp) => resp.json())
       .then((arr) => setimages(arr));
   }, []);
+  useEffect(() => {
+    state.setstate(store.getState().current);
+    store.subscribe(()=>{state.setstate(store.getState().current)})
+  }, [])
   return (
     <div className="App">
       <FlexHGrow>
         <Header />
         <Navbar />
         <FlexWGrow>
-          <MemeSVGViewer basePath="" meme={state} />
+          <MemeSVGViewer
+            basePath=""
+            meme={state}
+            image={images.find((elem) => elem.id === state.imageId)}
+          />
           <MemeForm
             images={images}
             meme={state}
