@@ -7,8 +7,9 @@ import FlexWGrow from "./components/layouts/FlexWGrow/FlexWGrow";
 import MemeForm from "./components/functionnals/MemeForm/MemeForm";
 import Footer from "./components/uis/Footer/Footer";
 import { MemeSVGViewer, emptyMeme } from "orsys-tjs-meme";
-import Modal from "./components/Modal/Modal";
-
+import {Modal} from "./components/Modal/Modal";
+import {Provider} from 'react-redux'
+import { store } from "./store/store";
 function App(props) {
   const [state, setstate] = useState(emptyMeme);
   const [images, setimages] = useState([]);
@@ -23,7 +24,7 @@ function App(props) {
       .then((arr) => setimages(arr));
   }, []);
   return (
-    <>
+    <Provider store={store}>
       <div className="App">
         <FlexHGrow>
           <Header />
@@ -41,8 +42,8 @@ function App(props) {
           <Footer />
         </FlexHGrow>
       </div>
-      <Modal {...modal} onOk={()=>{setmodal({...modal,isOpen:false,title:undefined})}} />
-    </>
+      <Modal  />
+    </Provider>
   );
 }
 
