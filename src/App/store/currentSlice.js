@@ -20,7 +20,7 @@ const currentSlice = createSlice({
     })
   }
 });
-export const save = createAsyncThunk("current/save", async (meme) => {
+export const saveCurrent = createAsyncThunk("current/save", async (meme) => {
   const promiseSave = await fetch(
     `http://localhost:5679/memes${undefined !== meme.id ? "/" + meme.id : ""}`,
     {
