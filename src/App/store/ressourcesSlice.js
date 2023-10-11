@@ -17,7 +17,7 @@ const ressourcesSlice = createSlice({
         state.images.splice(0);
         state.images.push(...action.payload);
     });
-    builder.addCase('ressources/loadmemes/fulfilled',(state,action)=>{
+    builder.addCase('ressources/loadMemes/fulfilled',(state,action)=>{
         state.memes.splice(0);
         state.memes.push(...action.payload);
     });
