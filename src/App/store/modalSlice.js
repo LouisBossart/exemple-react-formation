@@ -19,6 +19,10 @@ const modalSlice = createSlice({
         state.title=undefined;
         state.isOpen=false;
     }
+  },
+  extraReducers(builder){
+    builder.addCase('current/save/pending',(s)=>{s.isOpen=true;s.message='enregistrement en cours'})
+    builder.addCase('current/save/fulfilled',(s)=>{s.isOpen=false;})
   }
 });
 
