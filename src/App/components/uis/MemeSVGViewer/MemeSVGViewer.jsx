@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./MemeSVGViewer.module.css";
-
+import { MemeSVGViewer } from "orsys-tjs-meme";
+import { useSelector } from "react-redux";
 const MemeSvgViewer = (props) => {
-  const [state, setstate] = useState({});
-  useEffect(() => {
-    return () => {
-    };
-  }, [])
+  const current = useSelector((s) => s.current);
+  const images = useSelector((s) => s.ressources.images);
+  // useEffect(() => {
+  //  console.log('le meme a ete mis a jour declenchement du composant MemeSVG pour refresh')
+  // }, [current])
+  // console.log(current,images);
   return (
-    <div className={styles.MemeSvgViewer} data-testid="MemeSvgViewer">
-      MemeSvgViewer Component
-    </div>
+    <MemeSVGViewer
+      {...props}
+      meme={current}
+      image={images.find((i) => i.id === current.imageId)}
+    />
   );
 };
 
-MemeSvgViewer.propTypes = {};
+MemeSvgViewer.propTypes = { basePath: PropTypes.string };
 
-MemeSvgViewer.defaultProps = {};
+MemeSvgViewer.defaultProps = { basePath: "" };
 
 export default MemeSvgViewer;

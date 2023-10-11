@@ -4,10 +4,10 @@ import styles from "./MemeForm.module.css";
 import Button from "../../uis/Button/Button";
 import { emptyMeme } from "orsys-tjs-meme";
 // import {connect} from 'react-redux'
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { changeMeme } from "../../../store/currentSlice";
 const MemeForm = (props) => {
-  console.log(props)
+  console.log(props);
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
       <form>
@@ -246,11 +246,17 @@ function mapDispatch(dispatch) {
 }
 export const ConnectedMemeForm=connect(mapStateToProps,mapDispatch)(MemeForm);
 */
-export function ConnectedMemeForm(props){
-  const current=useSelector((s)=>s.current)
-  const dispatch=useDispatch();
-  return <MemeForm {...props} meme={current} onMemeChange={(meme)=>dispatch(changeMeme(meme))} />
+export function ConnectedMemeForm(props) {
+  const current = useSelector((s) => s.current);
+  const images = useSelector((s) => s.ressources.images);
+  const dispatch = useDispatch();
+  return (
+    <MemeForm
+      {...props}
+      images={images}
+      meme={current}
+      onMemeChange={(meme) => dispatch(changeMeme(meme))}
+    />
+  );
 }
-ConnectedMemeForm.propTypes = {
-  images: PropTypes.array.isRequired,
-};
+ConnectedMemeForm.propTypes = {};
