@@ -11,9 +11,11 @@ import Footer from "./components/uis/Footer/Footer";
 import { emptyMeme } from "orsys-tjs-meme";
 import { store } from "./store/store";
 import MemeSVGViewer from './components/uis/MemeSVGViewer/MemeSVGViewer'
+import {Modal} from "./components/Modal/Modal";
 function App(props) {
  
   return (
+    <>
     <div className="App">
       <FlexHGrow>
         <Header />
@@ -25,6 +27,8 @@ function App(props) {
         <Footer />
       </FlexHGrow>
     </div>
+    <Modal/>
+    </>
   );
 }
 
