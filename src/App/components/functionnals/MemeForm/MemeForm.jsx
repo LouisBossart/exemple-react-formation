@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import styles from "./MemeForm.module.css";
 import Button from "../../uis/Button/Button";
 import { emptyMeme } from "orsys-tjs-meme";
-import { changeMeme } from "../../../store/currentSlice";
 // import {connect} from 'react-redux'
 import {useSelector, useDispatch} from 'react-redux'
+import { changeMeme } from "../../../store/currentSlice";
 const MemeForm = (props) => {
   console.log(props)
   return (
