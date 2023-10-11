@@ -12,8 +12,13 @@ import { emptyMeme } from "orsys-tjs-meme";
 import { store } from "./store/store";
 import MemeSVGViewer from './components/uis/MemeSVGViewer/MemeSVGViewer'
 import {Modal} from "./components/Modal/Modal";
+import {useDispatch} from 'react-redux'
+//import { fillImages } from "./store/ressourcesSlice";
 function App(props) {
- 
+  //const d=useDispatch()
+//  useEffect(() => {
+//    fetch('http://localhost:5679/images').then(r=>r.json()).then(arr=>d(fillImages({images:arr})))
+//  }, [])
   return (
     <>
     <div className="App">
