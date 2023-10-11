@@ -1,8 +1,9 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import currentReducer from './currentSlice'
 import modalReducer from './modalSlice'
+import ressourcesReducer from './ressourcesSlice'
 export const store=configureStore({
-    reducer:combineReducers({current: currentReducer, modal:modalReducer})
+    reducer:combineReducers({current: currentReducer, modal:modalReducer,ressources:ressourcesReducer}),
 });
 
 
