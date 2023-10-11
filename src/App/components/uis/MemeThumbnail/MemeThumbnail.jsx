@@ -10,7 +10,7 @@ const MemeThumbnail = (props) => {
     <div className={styles.MemeThumbnail} data-testid="MemeThumbnail">
       <div className={styles.container}>
         {props.memes.map((m, i) => (
-          <div onClick={props.onmemeclick(m)} key={"m"+i}>
+          <div key={"m"+i}>
             <Link to={"/editor/"+m.id}>
             <MemeSVGViewer
               meme={m}
